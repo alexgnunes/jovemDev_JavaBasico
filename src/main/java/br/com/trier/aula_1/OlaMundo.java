@@ -6,5 +6,4 @@ public class OlaMundo {
 		System.out.println("Olá Mund!");
 System.out.println("****");
 	}
-
 }
