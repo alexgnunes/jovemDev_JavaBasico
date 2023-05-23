@@ -24,14 +24,8 @@ public class MainCarros {
 				Util.filtrarCarrosMarca(carros);
 				
 			} else if (opcao == 4) {
-				Cor[] opcoesCores = Cor.values();
-				Cor corEscolhida = (Cor) JOptionPane.showInputDialog(null, "Selecione a cor:", "Selecionar Cor",
-						JOptionPane.QUESTION_MESSAGE, null, opcoesCores, opcoesCores[0]);
-				for (Carro carro : carros) {
-					if (carro.getCor().equals(corEscolhida)) {
-						System.out.println(carro.getMarca());
-					}
-				}
+				Util.filtrarCarrosCor(carros);
+				
 			}
 
 		} while (opcao != 5);
