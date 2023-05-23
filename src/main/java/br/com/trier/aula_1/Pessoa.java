@@ -5,9 +5,15 @@ public class Pessoa {
 	String sexo;
 	Double peso;
 	Double altura;
-	
 
 	public Pessoa() {
+	}
+
+	public Pessoa(String nome, String sexo, Double peso, Double altura) {
+		this.nome = nome;
+		this.sexo = sexo;
+		this.peso = peso;
+		this.altura = altura;
 	}
 
 	public double CalculaIMC(Double peso, Double altura) {
@@ -16,7 +22,11 @@ public class Pessoa {
 	}
 
 	public String avaliacaoIMC(String sexo, Double valorIMC) {
-		if (sexo == "M") {
+		if (sexo == null) {
+			return "Gênero inválido";
+		}
+
+		if (sexo.equalsIgnoreCase("M")) {
 			if (valorIMC <= 20.7) {
 				return "Abaixo do peso";
 			} else if (valorIMC <= 26.4) {
