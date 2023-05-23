@@ -1,5 +1,7 @@
 package br.com.trier.aula_2.carros;
 
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 public class Util {
@@ -12,4 +14,25 @@ public class Util {
 				+ "5-Sair\n";
 		return Integer.parseInt(JOptionPane.showInputDialog(menu));
 	}
+
+	public static void filtrarCarrosAnoFabricacao(List<Carro> carros) {
+		int anoInicial = Integer.parseInt(JOptionPane.showInputDialog("ano inicial: "));
+		int anoFinal = Integer.parseInt(JOptionPane.showInputDialog("ano final: "));
+		for (Carro carro : carros) {
+			if (carro.getAno() > anoInicial && carro.getAno() < anoFinal) {
+				System.out.println(carro.getMarca());
+			}
+		}
+	}
+
+	public static void filtrarCarrosMarca(List<Carro> carros) {
+		String marcaEscolhida = JOptionPane.showInputDialog("escolha uma marca: ").toLowerCase();
+	for (Carro carro : carros) {
+		if (marcaEscolhida.equalsIgnoreCase(carro.getMarca())) {
+			System.out.println(carro.getMarca());
+		}
+	}
+		
+	}
+	
 }

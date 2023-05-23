@@ -19,21 +19,11 @@ public class MainCarros {
 				carro.cadastrar();
 				carros.add(carro);
 			} else if (opcao == 2) {
-				int anoInicial = Integer.parseInt(JOptionPane.showInputDialog("ano inicial: "));
-				int anoFinal = Integer.parseInt(JOptionPane.showInputDialog("ano final: "));
-				for (Carro carro : carros) {
-					if (carro.getAno() > anoInicial && carro.getAno() < anoFinal) {
-						System.out.println(carro.getMarca());
-					}
-				}
+				Util.filtrarCarrosAnoFabricacao(carros);
 			} else if (opcao == 3) {
-				String marcaEscolhida = JOptionPane.showInputDialog("escolha uma marca: ").toLowerCase();
-				for (Carro carro : carros) {
-					if (marcaEscolhida.equalsIgnoreCase(carro.getMarca())) {
-						System.out.println(carro.getMarca());
-					}
-				}
-			}else if (opcao == 4) {
+				Util.filtrarCarrosMarca(carros);
+				
+			} else if (opcao == 4) {
 				Cor[] opcoesCores = Cor.values();
 				Cor corEscolhida = (Cor) JOptionPane.showInputDialog(null, "Selecione a cor:", "Selecionar Cor",
 						JOptionPane.QUESTION_MESSAGE, null, opcoesCores, opcoesCores[0]);
