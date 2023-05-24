@@ -6,7 +6,7 @@ import java.util.List;
 public class MainTime {
 
 	public static void main(String[] args) {
-		List<Time> times = new ArrayList<Time>();
+		List<Time> times = new ArrayList<Time>();		
 
 		int opcao = 0;
 		do {
@@ -15,9 +15,9 @@ public class MainTime {
 				Time time = new Time();
 				time.cadastrar();
 				times.add(time);
-			} // else if (opcao == 2) {
-//				Util.filtrarCarrosAnoFabricacao(carros);
-//			} else if (opcao == 3) {
+			} else if (opcao == 2) {
+				UtilTime.listarJogadores(times);
+			} // else if (opcao == 3) {
 //				Util.filtrarCarrosMarca(carros);
 //				
 //			} else if (opcao == 4) {

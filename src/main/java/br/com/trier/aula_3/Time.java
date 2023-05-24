@@ -14,6 +14,19 @@ public class Time {
 	private String nomeTime;
 
 	List<Jogador> jogadores = new ArrayList<Jogador>();
+	
+	public Time() {
+	}
+	
+	public Time(String nomeTime) {
+		super();
+		this.nomeTime = nomeTime;
+	}
+
+	public Time(String nomeTime, List<Jogador> jogadores) {
+		this.nomeTime = nomeTime;
+		this.jogadores = jogadores;
+	}
 
 	public void cadastrar() {
 		nomeTime = JOptionPane
@@ -37,5 +50,10 @@ public class Time {
 	public String toString() {
 		return "Time [nomeTime=" + nomeTime + ", jogadores=" + jogadores + "]";
 	}
+
+	
+
+	
+
 
 }

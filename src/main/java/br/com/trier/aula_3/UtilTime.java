@@ -1,5 +1,7 @@
 package br.com.trier.aula_3;
 
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 public class UtilTime {
@@ -15,5 +17,20 @@ public class UtilTime {
 				JOptionPane.QUESTION_MESSAGE));
 		;
 		return opcao;
+	}
+
+	public static void listarJogadores(List<Time> times) {
+		String timeEscolhido = JOptionPane
+			.showInputDialog(null, "Digite o time:", "Listar jogadores do Time", JOptionPane.QUESTION_MESSAGE)
+			.toLowerCase();
+		for (Time time : times) {
+			if (timeEscolhido.equals(time.getNomeTime())) {
+					List<Jogador> jogadores = time.getJogadores();
+					for (Jogador jogador : jogadores) {
+						System.out.println(jogador.getNomeJogador()); 
+					}
+				
+			}
+		}
 	}
 }
