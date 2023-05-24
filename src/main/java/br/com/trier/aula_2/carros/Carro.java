@@ -41,8 +41,7 @@ public class Carro {
 	}
 
 	public void cadastrar() {
-//		marca = JOptionPane.showInputDialog("marca: ");
-		marca = JOptionPane.showInputDialog(null, "Digite a marca:", "Marca", JOptionPane.PLAIN_MESSAGE);
+		marca = JOptionPane.showInputDialog(null, "Digite a marca:", "Marca", JOptionPane.PLAIN_MESSAGE).toUpperCase();
 		ano = Integer.parseInt(JOptionPane.showInputDialog("ano: "));
 		Cor[] opcoesCores = Cor.values();
 		Cor corSelecionada = (Cor) JOptionPane.showInputDialog(null, "Selecione a cor:", "Selecionar Cor",
