@@ -18,7 +18,7 @@ public class Util {
 		int anoInicial = Integer.parseInt(JOptionPane.showInputDialog("ano inicial: "));
 		int anoFinal = Integer.parseInt(JOptionPane.showInputDialog("ano final: "));
 		for (Carro carro : carros) {
-			if (carro.getAno() > anoInicial && carro.getAno() < anoFinal) {
+			if (carro.getAno() >= anoInicial && carro.getAno() <= anoFinal) {
 				carrosImprimir.add(carro);
 			}
 		}
@@ -51,11 +51,12 @@ public class Util {
 
 	public static void imprimir(List<Carro> carrosImprimir, List<Carro> carros) {
 		for (Carro carro : carrosImprimir) {
-			System.out.println(carro.getMarca() + "\t ano: " + carro.getAno() + "\t cor: " + carro.getCor());
+			
+			System.out.println(String.format("%-10s", carro.getMarca()) + " ano: " + carro.getAno() + "\t cor: " + carro.getCor());
 		}
 		double porcentagem = ((double) carrosImprimir.size() / carros.size()) * 100;
 		carrosImprimir.clear();
 
-		System.out.println("o resultado representa " + porcentagem + "% dos carros existentes");
+		System.out.println("o resultado representa " + String.format("%.2f", porcentagem) + "% dos carros existentes");
 	}
 }
