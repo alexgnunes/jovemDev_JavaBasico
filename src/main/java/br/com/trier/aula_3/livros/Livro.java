@@ -6,7 +6,9 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import br.com.trier.aula_3.EnumContinua;
+import lombok.Setter;
 
+@Setter
 public class Livro {
 	private String titulo;
 	private Double preco;
@@ -76,10 +78,20 @@ public class Livro {
 
 	public boolean isAutorCrianca() {
 		for (Autor autor : autorLivro) {
-			if (autor.getIdade() <=12) {
+			if (autor.getIdade() <= 12) {
 				return true;
 			}
 		}
 		return false;
 	}
+
+	public boolean isSexo(EnumSexo sexoSelecionado) {
+		for (Autor autor : autorLivro) {
+			if (autor.getSexo().equals(sexoSelecionado)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 }

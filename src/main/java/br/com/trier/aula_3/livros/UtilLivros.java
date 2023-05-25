@@ -78,17 +78,31 @@ public class UtilLivros {
 		}
 	}
 
-	public static void pesquisarAutorInfantil(List<Autor> autores, List<Livro> livros) {
-		Autor autorCrianca = null;
+	public static void pesquisarAutorInfantil(List<Livro> livros) {
 		List<Livro> livroAutorInfantil = new ArrayList<Livro>();
-		
-				for (Livro livro : livros) {
-					if(livro.isAutorCrianca()) {						
-					livroAutorInfantil.add(livro);
-				}
+
+		for (Livro livro : livros) {
+			if (livro.isAutorCrianca()) {
+				livroAutorInfantil.add(livro);
 			}
-	for (Livro livro : livroAutorInfantil) {
+		}
+		for (Livro livro : livroAutorInfantil) {
 			System.out.println(livro.getTitulo());
 		}
-}
 	}
+
+	public static void listarLivrosGenero(List<Livro> livros) {
+		List<Livro> livroGenero = new ArrayList<Livro>();
+		EnumSexo[] opcoesSexo = EnumSexo.values();
+		EnumSexo sexoSelecionado = (EnumSexo) JOptionPane.showInputDialog(null, "Selecione o sexo:", "Cadatrar autor",
+				JOptionPane.QUESTION_MESSAGE, null, opcoesSexo, opcoesSexo[0]);
+		for (Livro livro : livros) {
+			if (livro.isSexo(sexoSelecionado)) {
+				livroGenero.add(livro);
+			}
+		}
+		for (Livro livro : livroGenero) {
+			System.out.println(livro.getTitulo());
+		}
+	}
+}
