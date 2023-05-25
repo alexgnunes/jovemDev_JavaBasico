@@ -5,19 +5,21 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import br.com.trier.aula_3.EnumContinua;
+
 public class Livro {
 	private String titulo;
 	private Double preco;
 	
-	List<Autor> autores = new ArrayList<Autor>();
+	List<Autor> autorLivro = new ArrayList<Autor>();
 
 	public Livro() {
 	}
 
-	public Livro(String titulo, Double preco, List<Autor> autores) {
+	public Livro(String titulo, Double preco, List<Autor> autorLivro) {
 		this.titulo = titulo;
 		this.preco = preco;
-		this.autores = autores;
+		this.autorLivro = autorLivro;
 	}
 
 	public String getTitulo() {
@@ -28,26 +30,37 @@ public class Livro {
 		return preco;
 	}
 
-	public List<Autor> getAutores() {
-		return autores;
+	public List<Autor> getautorLivro() {
+		return autorLivro;
 	}
+	
 	
 	@Override
 	public String toString() {
-		return "Livro [titulo=" + titulo + ", preco=" + preco + ", autores=" + autores + "]";
+		return "Livro [titulo=" + titulo + ", preco=" + preco + ", autorLivro=" + autorLivro + "]";
 	}
-	public static void cadastrarLivro(List<Autor> autores) {
-		String titulo = JOptionPane.showInputDialog(null, "Digite o titulo do livro: ", "Cadatrar livro", JOptionPane.QUESTION_MESSAGE).toLowerCase();
-		Integer preco = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o preço:", "Cadatrar livro", JOptionPane.QUESTION_MESSAGE));
-		String autor = JOptionPane.showInputDialog(null, listarAutores(autores), "Cadatrar livro", JOptionPane.QUESTION_MESSAGE).toLowerCase();
+
+	public void cadastrarLivro(List<Autor> autores) {
+		titulo = JOptionPane.showInputDialog(null, "Digite o titulo do livro: ", "Cadatrar livro", JOptionPane.QUESTION_MESSAGE).toLowerCase();
+		preco = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o preï¿½o:", "Cadatrar livro", JOptionPane.QUESTION_MESSAGE));
+		
+		boolean VerificaSeAdicionaAutor = true;
+		do {
+		Integer numeroAutor = Integer.parseInt(JOptionPane.showInputDialog(null, UtilLivros.listarAutores(autores), "Cadatrar livro", JOptionPane.QUESTION_MESSAGE));
+		
+		Autor autor = autores.get(numeroAutor - 1);
+		autorLivro.add(autor);
+		
+		EnumContinua[] opcoesCadastro = EnumContinua.values();
+		EnumContinua opcaoEscolhida = (EnumContinua) JOptionPane.showInputDialog(null,
+				"Deseja cadastrar outro autor?", "Cadastro do livro", JOptionPane.QUESTION_MESSAGE, null,
+				opcoesCadastro, opcoesCadastro[0]);
+		if (opcaoEscolhida == EnumContinua.NAO) {
+			VerificaSeAdicionaAutor = false;
+		}
+		}while (VerificaSeAdicionaAutor);
 		
 	}	
 	
-	public static String listarAutores(List<Autor> autores) {
-		StringBuilder listaAutores = new StringBuilder("Escolha um autor:\n");
-        for (int i = 0; i < autores.size(); i++) {
-        	 listaAutores.append((i + 1)).append(". ").append(autores.get(i).getNome()).append("\n");
-        }
-        return listaAutores.toString();
-	}
+	
 }

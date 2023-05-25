@@ -1,35 +1,32 @@
 package br.com.trier.aula_3.livros;
 
-import java.util.List;
-
 import javax.swing.JOptionPane;
 
-import br.com.trier.aula_2.carros.Cor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 public class Autor {
-	private String nome;
-	private int idade;
+	private String nomeAutor;
+	private Integer idade;
 	private EnumSexo sexo;
 	
 	public Autor() {
 	}
 
-	public Autor(String nome, int idade, EnumSexo sexo) {
-		this.nome = nome;
+	public Autor(String nomeAutor, int idade, EnumSexo sexo) {
+		this.nomeAutor = nomeAutor;
 		this.idade = idade;
 		this.sexo = sexo;
 	}
 
 	public String getNome() {
-		return nome;
+		return nomeAutor;
 	}
 
-	public void setNome(String nom) {
-		this.nome = nome;
+	public void setNome(String nomeAutor) {
+		this.nomeAutor = nomeAutor;
 	}
 
 	public int getIdade() {
@@ -48,21 +45,20 @@ public class Autor {
 		this.sexo = sexo;
 	}
 
-	public void cadastrarAutor(List<Autor> autores) {
+	public void cadastrarAutor() {
 		EnumSexo[] opcoesSexo = EnumSexo.values();
-		String nomeAutor = JOptionPane.showInputDialog(null, "Digite o nome do autor:", "Cadatrar autor", JOptionPane.QUESTION_MESSAGE).toLowerCase();
+		nomeAutor = JOptionPane.showInputDialog(null, "Digite o nome do autor:", "Cadatrar autor", JOptionPane.QUESTION_MESSAGE).toLowerCase();
 		EnumSexo sexoSelecionado = (EnumSexo) JOptionPane.showInputDialog(null, "Selecione o sexo:", "Cadatrar autor",
 				JOptionPane.QUESTION_MESSAGE, null, opcoesSexo, opcoesSexo[0]);
 		sexo = sexoSelecionado;
-		Integer idadeAutor = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite a idade do autor:", "Cadatrar autor", JOptionPane.QUESTION_MESSAGE));
+		idade = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite a idade do autor:", "Cadatrar autor", JOptionPane.QUESTION_MESSAGE));
 		
-		autores.add(new Autor(nomeAutor, idadeAutor, sexo));
-		System.out.println(autores.get(0).toString());
+		
 	}
 
 	@Override
 	public String toString() {
-		return "Autor [nome=" + nome + ", idade=" + idade + ", sexo=" + sexo + "]";
+		return "Autor [nome=" + nomeAutor + ", idade=" + idade + ", sexo=" + sexo + "]";
 	}
 
 	

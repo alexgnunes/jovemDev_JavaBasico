@@ -18,10 +18,17 @@ public class MainLivros {
 			opcao = UtilLivros.escolherOpcao();
 			if (opcao == 1) {
 				Autor autor = new Autor();
-				autor.cadastrarAutor(autores);
-				autores.add(autor);				
+				autor.cadastrarAutor();
+				autores.add(autor);		
+				System.out.println(autor.toString());
 			}else if (opcao == 2) {
-				Livro.cadastrarLivro(autores);
+				Livro livro = new Livro();
+				livro.cadastrarLivro(autores);
+				livros.add(livro);
+			}else if (opcao == 3) {
+				UtilLivros.listarLivros(livros);
+			}else if (opcao == 4) {
+				UtilLivros.pesquisarAutor(autores);
 			}
 			
 			
