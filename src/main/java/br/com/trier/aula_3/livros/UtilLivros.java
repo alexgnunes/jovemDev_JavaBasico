@@ -1,5 +1,7 @@
 package br.com.trier.aula_3.livros;
 
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 public class UtilLivros {
@@ -16,5 +18,13 @@ public class UtilLivros {
 				"Digite a opção:", JOptionPane.QUESTION_MESSAGE));
 		
 		return opcao;
+	}
+	
+	public static String listarAutores(List<Autor> autores) {
+		StringBuilder listaAutores = new StringBuilder("Escolha um autor:\n");
+        for (int i = 0; i < autores.size(); i++) {
+        	 listaAutores.append((i + 1)).append(". ").append(autores.get(i).getNome()).append("\n");
+        }
+        return listaAutores.toString();
 	}
 }
