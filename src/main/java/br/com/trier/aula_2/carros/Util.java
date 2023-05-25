@@ -37,7 +37,6 @@ public class Util {
 	}
 
 	public static void filtrarCarrosCor(List<Carro> carros) {
-
 		Cor[] opcoesCores = Cor.values();
 		Cor corEscolhida = (Cor) JOptionPane.showInputDialog(null, "Selecione a cor:", "Selecionar Cor",
 				JOptionPane.QUESTION_MESSAGE, null, opcoesCores, opcoesCores[0]);

@@ -21,6 +21,30 @@ public class Jogador {
 		this.qtdGols = qtdGols;
 	}
 
+	public String getNomeJogador() {
+		return nomeJogador;
+	}
+
+	public void setNomeJogador(String nomeJogador) {
+		this.nomeJogador = nomeJogador;
+	}
+
+	public Integer getNumeroCamisa() {
+		return numeroCamisa;
+	}
+
+	public void setNumeroCamisa(Integer numeroCamisa) {
+		this.numeroCamisa = numeroCamisa;
+	}
+
+	public Integer getQtdGols() {
+		return qtdGols;
+	}
+
+	public void setQtdGols(Integer qtdGols) {
+		this.qtdGols = qtdGols;
+	}
+
 	@Override
 	public String toString() {
 		return "Jogador [nomeJogador=" + nomeJogador + ", numeroCamisa=" + numeroCamisa + ", qtdGols=" + qtdGols + "]";

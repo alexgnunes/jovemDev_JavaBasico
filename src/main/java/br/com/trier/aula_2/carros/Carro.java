@@ -19,9 +19,31 @@ public class Carro {
 	}
 
 	public Carro() {
+	}	
+
+	public String getMarca() {
+		return marca;
 	}
 
-	
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public Integer getAno() {
+		return ano;
+	}
+
+	public void setAno(Integer ano) {
+		this.ano = ano;
+	}
+
+	public Cor getCor() {
+		return cor;
+	}
+
+	public void setCor(Cor cor) {
+		this.cor = cor;
+	}
 
 	public void cadastrar() {		
 		marca = JOptionPane.showInputDialog(null, "Digite a marca:", "Marca", JOptionPane.QUESTION_MESSAGE).toUpperCase();

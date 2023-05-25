@@ -17,14 +17,13 @@ public class MainTime {
 				times.add(time);
 			} else if (opcao == 2) {
 				UtilTime.listarJogadores(times);
-			} // else if (opcao == 3) {
-//				Util.filtrarCarrosMarca(carros);
-//				
-//			} else if (opcao == 4) {
-//				Util.filtrarCarrosCor(carros);				
-//			}
+			}  else if (opcao == 3) {
+				UtilTime.verificaArtilheiro(times);
+				
+			} else if (opcao == 4) {
+				UtilTime.verificaTimeMaiorGols(times);				
+			}
 		} while (opcao != 5);
-		System.out.println(times.get(0).toString());
 	}
 
 }
