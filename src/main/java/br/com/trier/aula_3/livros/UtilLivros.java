@@ -1,5 +1,6 @@
 package br.com.trier.aula_3.livros;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -39,18 +40,55 @@ public class UtilLivros {
 	}
 
 	public static void listarLivros(List<Livro> livros) {
-		System.out.println("cheguei aqqui");
 		for (Livro livro : livros) {
-			System.out.print("Titulo: " + livro.getTitulo() + "\tpreço R$" +  livro.getPreco() + "\tautor(es): " + listarAutores(livro.autorLivro));
+			System.out.print("Titulo: " + livro.getTitulo() + "\tpreço R$" + livro.getPreco() + "\tautor(es): "
+					+ listarAutores(livro.autorLivro));
 			System.out.println("------------------");
-		}		
-	}
-
-	public static void pesquisarAutor(List<Autor> autores) {
-		Integer numeroAutor = Integer.parseInt(JOptionPane.showInputDialog(null, UtilLivros.listarAutores(autores), "Cadatrar livro", JOptionPane.QUESTION_MESSAGE));
-		for (Autor autor : autores) {
-			
-			
 		}
 	}
+
+	public static void pesquisarAutor(List<Autor> autores, List<Livro> livros) {
+		Integer numeroAutor = Integer.parseInt(JOptionPane.showInputDialog(null, UtilLivros.listarAutores(autores),
+				"Cadatrar livro", JOptionPane.QUESTION_MESSAGE));
+		Autor autor = null;
+		for (int i = 0; i < autores.size(); i++) {
+			if (i + 1 == numeroAutor) {
+				autor = autores.get(i);
+				for (Livro livro : livros) {
+					if (livro.isAutor(autor)) {
+						System.out.println(livro.getTitulo());
+					}
+				}
+
+			}
+		}
+	}
+
+	public static void pesquisarPreco(List<Livro> livros) {
+		Double precoInicial = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor inicial: ",
+				"Filtra por preço", JOptionPane.QUESTION_MESSAGE));
+		Double precoFinal = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor final: ",
+				"Filtra por preço", JOptionPane.QUESTION_MESSAGE));
+
+		for (Livro livro : livros) {
+			if (precoInicial < livro.getPreco() && livro.getPreco() < precoFinal) {
+				System.out.println(livro.getTitulo());
+			}
+
+		}
+	}
+
+	public static void pesquisarAutorInfantil(List<Autor> autores, List<Livro> livros) {
+		Autor autorCrianca = null;
+		List<Livro> livroAutorInfantil = new ArrayList<Livro>();
+		
+				for (Livro livro : livros) {
+					if(livro.isAutorCrianca()) {						
+					livroAutorInfantil.add(livro);
+				}
+			}
+	for (Livro livro : livroAutorInfantil) {
+			System.out.println(livro.getTitulo());
+		}
 }
+	}

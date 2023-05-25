@@ -7,9 +7,9 @@ public class MainLivros {
 
 	public static void main(String[] args) {
 		List<Autor> autores = new ArrayList<Autor>();
-		autores.add(new Autor("Autor 1", 30, EnumSexo.MASCULINO));
+		autores.add(new Autor("Autor 1", 10, EnumSexo.MASCULINO));
 		autores.add(new Autor("Autor 2", 25, EnumSexo.FEMININO));
-		autores.add(new Autor("Autor 3", 35, EnumSexo.FEMININO));
+		autores.add(new Autor("Autor 3", 5, EnumSexo.FEMININO));
 		
 		List<Livro> livros = new ArrayList<Livro>();
 		
@@ -28,7 +28,11 @@ public class MainLivros {
 			}else if (opcao == 3) {
 				UtilLivros.listarLivros(livros);
 			}else if (opcao == 4) {
-				UtilLivros.pesquisarAutor(autores);
+				UtilLivros.pesquisarAutor(autores, livros);
+			}else if (opcao == 5) {
+				UtilLivros.pesquisarPreco(livros);
+			}else if (opcao == 6) {
+				UtilLivros.pesquisarAutorInfantil(autores, livros);
 			}
 			
 			

@@ -59,7 +59,5 @@ public class Autor {
 	@Override
 	public String toString() {
 		return "Autor [nome=" + nomeAutor + ", idade=" + idade + ", sexo=" + sexo + "]";
-	}
-
-	
+	}	
 }
