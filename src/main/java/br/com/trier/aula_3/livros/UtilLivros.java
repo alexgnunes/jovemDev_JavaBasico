@@ -10,10 +10,10 @@ public class UtilLivros {
 		int opcao = Integer.parseInt(JOptionPane.showInputDialog(null,
 				"1 - Cadastrar Autor \r\n" + "2 - Cadastrar Livros \r\n" + "3 - Listar todos os livros cadastrados \r\n"
 						+ "4 - Pesquisar por autor \r\n" + "5 - Pesquisar por faixa de valor do livro \r\n"
-						+ "6 - Listar todos os livros cujo autores tenham crian�as (idade <=12) \r\n"
+						+ "6 - Listar todos os livros cujo autores tenham criancas (idade <=12) \r\n"
 						+ "7 - Listar todos os livros que foram escritos apenas por mulheres ou por homens \r\n"
 						+ "8 - Sair \r\n",
-				"Digite a opção:", JOptionPane.QUESTION_MESSAGE));
+				"Digite a opcao:", JOptionPane.QUESTION_MESSAGE));
 
 		return opcao;
 	}
@@ -40,8 +40,9 @@ public class UtilLivros {
 	}
 
 	public static void listarLivros(List<Livro> livros) {
+		StringBuilder sb = new StringBuilder();
 		for (Livro livro : livros) {
-			System.out.print("Titulo: " + livro.getTitulo() + "\tpreço R$" + livro.getPreco() + "\tautor(es): "
+			System.out.print("Titulo: " + livro.getTitulo() + "\npreco R$" + livro.getPreco() + "\nautor(es):\n"
 					+ listarAutores(livro.autorLivro));
 			System.out.println("------------------");
 		}
@@ -59,23 +60,23 @@ public class UtilLivros {
 						System.out.println(livro.getTitulo());
 					}
 				}
-
+				System.out.println("------------------");
 			}
 		}
 	}
 
 	public static void pesquisarPreco(List<Livro> livros) {
 		Double precoInicial = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor inicial: ",
-				"Filtra por preço", JOptionPane.QUESTION_MESSAGE));
+				"Filtra por preco", JOptionPane.QUESTION_MESSAGE));
 		Double precoFinal = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor final: ",
-				"Filtra por preço", JOptionPane.QUESTION_MESSAGE));
+				"Filtra por preco", JOptionPane.QUESTION_MESSAGE));
 
 		for (Livro livro : livros) {
 			if (precoInicial < livro.getPreco() && livro.getPreco() < precoFinal) {
 				System.out.println(livro.getTitulo());
 			}
-
 		}
+		System.out.println("------------------");
 	}
 
 	public static void pesquisarAutorInfantil(List<Livro> livros) {
@@ -89,6 +90,7 @@ public class UtilLivros {
 		for (Livro livro : livroAutorInfantil) {
 			System.out.println(livro.getTitulo());
 		}
+		System.out.println("------------------");
 	}
 
 	public static void listarLivrosGenero(List<Livro> livros) {
@@ -104,5 +106,6 @@ public class UtilLivros {
 		for (Livro livro : livroGenero) {
 			System.out.println(livro.getTitulo());
 		}
+		System.out.println("------------------");
 	}
 }

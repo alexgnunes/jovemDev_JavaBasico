@@ -11,7 +11,7 @@ public class Autor {
 	private String nomeAutor;
 	private Integer idade;
 	private EnumSexo sexo;
-	
+
 	public Autor() {
 	}
 
@@ -47,17 +47,29 @@ public class Autor {
 
 	public void cadastrarAutor() {
 		EnumSexo[] opcoesSexo = EnumSexo.values();
-		nomeAutor = JOptionPane.showInputDialog(null, "Digite o nome do autor:", "Cadatrar autor", JOptionPane.QUESTION_MESSAGE).toLowerCase();
+		nomeAutor = JOptionPane
+				.showInputDialog(null, "Digite o nome do autor com sobrenome:", "Cadatrar autor", JOptionPane.QUESTION_MESSAGE)
+				.toLowerCase().trim();
+		while (!nomeAutor.contains(" ")) {
+			nomeAutor = JOptionPane
+					.showInputDialog(null, "Nome invalido, tente novamente:", "Cadatrar autor", JOptionPane.QUESTION_MESSAGE)
+					.toLowerCase().trim();
+		}
 		EnumSexo sexoSelecionado = (EnumSexo) JOptionPane.showInputDialog(null, "Selecione o sexo:", "Cadatrar autor",
 				JOptionPane.QUESTION_MESSAGE, null, opcoesSexo, opcoesSexo[0]);
 		sexo = sexoSelecionado;
-		idade = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite a idade do autor:", "Cadatrar autor", JOptionPane.QUESTION_MESSAGE));
-		
+		String idadeString = JOptionPane.showInputDialog(null, "Digite a idade do autor:", "Cadatrar autor",
+				JOptionPane.QUESTION_MESSAGE);		
+		while (idadeString == null || idadeString.isEmpty() || Double.parseDouble(idadeString) < 0 ) {
+			idadeString = JOptionPane.showInputDialog(null, "Idade invalida, tente novamente:", "Cadatrar autor",
+					JOptionPane.ERROR_MESSAGE);
+		}
+		idade = Integer.parseInt(idadeString);
 		
 	}
 
 	@Override
 	public String toString() {
 		return "Autor [nome=" + nomeAutor + ", idade=" + idade + ", sexo=" + sexo + "]";
-	}	
+	}
 }

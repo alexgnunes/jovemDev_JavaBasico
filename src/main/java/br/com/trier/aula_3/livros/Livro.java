@@ -6,8 +6,10 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import br.com.trier.aula_3.EnumContinua;
+import lombok.Getter;
 import lombok.Setter;
 
+@Getter
 @Setter
 public class Livro {
 	private String titulo;
@@ -21,6 +23,18 @@ public class Livro {
 	public Livro(String titulo, Double preco, List<Autor> autorLivro) {
 		this.titulo = titulo;
 		this.preco = preco;
+		this.autorLivro = autorLivro;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public void setPreco(Double preco) {
+		this.preco = preco;
+	}
+
+	public void setAutorLivro(List<Autor> autorLivro) {
 		this.autorLivro = autorLivro;
 	}
 
@@ -45,8 +59,13 @@ public class Livro {
 		titulo = JOptionPane
 				.showInputDialog(null, "Digite o titulo do livro: ", "Cadatrar livro", JOptionPane.QUESTION_MESSAGE)
 				.toLowerCase();
-		preco = Double.parseDouble(
-				JOptionPane.showInputDialog(null, "Digite o pre�o:", "Cadatrar livro", JOptionPane.QUESTION_MESSAGE));
+		String precoString = JOptionPane.showInputDialog(null, "Digite o preco:", "Cadatrar livro",
+				JOptionPane.QUESTION_MESSAGE);
+		while (precoString == null || precoString.isEmpty() || Double.parseDouble(precoString) <= 0 ) {
+			precoString = JOptionPane.showInputDialog(null, "Preco invalido, tente novamente:", "Cadatrar livro",
+					JOptionPane.ERROR_MESSAGE);
+		}
+		preco = Double.parseDouble(precoString);
 
 		boolean VerificaSeAdicionaAutor = true;
 		do {
