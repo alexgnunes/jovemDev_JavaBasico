@@ -69,11 +69,23 @@ public class Livro {
 
 		boolean VerificaSeAdicionaAutor = true;
 		do {
-			Integer numeroAutor = Integer.parseInt(JOptionPane.showInputDialog(null, UtilLivros.listarAutores(autores),
-					"Cadatrar livro", JOptionPane.QUESTION_MESSAGE));
+			String numeroAutorString = JOptionPane.showInputDialog(null, UtilLivros.listarAutores(autores),
+					"Cadatrar livro", JOptionPane.QUESTION_MESSAGE);
 
+			while (numeroAutorString == null || numeroAutorString.isEmpty()) {
+				numeroAutorString = JOptionPane.showInputDialog(null,
+						"Autor invalido, tente novamente:\n" + UtilLivros.listarAutores(autores), "Cadatrar livro",
+						JOptionPane.ERROR_MESSAGE);
+			}
+
+			Integer numeroAutor = Integer.parseInt(numeroAutorString);			
 			Autor autor = autores.get(numeroAutor - 1);
 			autorLivro.add(autor);
+			
+			if (autorLivro.size() == 4) {
+				System.out.println("Numero maximo de autores cadastrado");
+				break;
+			}
 
 			EnumContinua[] opcoesCadastro = EnumContinua.values();
 			EnumContinua opcaoEscolhida = (EnumContinua) JOptionPane.showInputDialog(null,
