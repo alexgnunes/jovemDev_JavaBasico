@@ -25,25 +25,12 @@ public class UtilLivros {
 		}
 
 		return listaAutores;
-	}
-
-	public static Livro escolherLivro(List<Livro> livros) {
-		String menu = "Escolha um livro: \n";
-		int posicao = 0;
-		for (Livro livro : livros) {
-			menu += posicao + " - " + livro.getTitulo() + "\n";
-			posicao++;
-		}
-		int escolha = Integer
-				.parseInt(JOptionPane.showInputDialog(null, "menu", "Escolher livro", JOptionPane.QUESTION_MESSAGE));
-		return livros.get(posicao - 1);
-	}
+	}	
 
 	public static void listarLivros(List<Livro> livros) {
-		StringBuilder sb = new StringBuilder();
 		for (Livro livro : livros) {
-			System.out.print("Titulo: " + livro.getTitulo() + "\npreco R$" + livro.getPreco() + "\nautor(es):\n"
-					+ listarAutores(livro.autorLivro));
+			System.out.print("Titulo: " + livro.getTitulo() + "\npreco R$" + String.format("%.2f", livro.getPreco())
+					+ "\nautor(es):\n" + listarAutores(livro.autorLivro));
 			System.out.println("------------------");
 		}
 	}
@@ -99,7 +86,7 @@ public class UtilLivros {
 		EnumSexo sexoSelecionado = (EnumSexo) JOptionPane.showInputDialog(null, "Selecione o sexo:", "Cadatrar autor",
 				JOptionPane.QUESTION_MESSAGE, null, opcoesSexo, opcoesSexo[0]);
 		for (Livro livro : livros) {
-			if (livro.isSexo(sexoSelecionado)) {
+			if (livro.isSexo(sexoSelecionado, livro)) {
 				livroGenero.add(livro);
 			}
 		}

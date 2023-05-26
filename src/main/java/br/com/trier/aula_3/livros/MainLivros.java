@@ -10,12 +10,15 @@ public class MainLivros {
 		autores.add(new Autor("Autor 1", 10, EnumSexo.MASCULINO));
 		autores.add(new Autor("Autor 2", 25, EnumSexo.FEMININO));
 		autores.add(new Autor("Autor 3", 5, EnumSexo.FEMININO));
+		autores.add(new Autor("Autor 4", 40, EnumSexo.MASCULINO));
+		autores.add(new Autor("Autor 5", 20, EnumSexo.MASCULINO));
 		
 		List<Livro> livros = new ArrayList<Livro>();
 		Livro livro1 = new Livro();
 		livro1.setTitulo("livro1");
 		livro1.setPreco(10.00);
 		livro1.getautorLivro().add(autores.get(0));
+		livro1.getautorLivro().add(autores.get(1));
 		livros.add(livro1);
 		Livro livro2 = new Livro();
 		livro2.setTitulo("livro2");
@@ -25,8 +28,7 @@ public class MainLivros {
 		Livro livro3 = new Livro();
 		livro3.setTitulo("livro3");
 		livro3.setPreco(20.00);
-		livro3.getautorLivro().add(autores.get(1));
-		livro3.getautorLivro().add(autores.get(2));
+		livro3.getautorLivro().add(autores.get(0));		
 		livros.add(livro3);
 		
 		int opcao = 0;

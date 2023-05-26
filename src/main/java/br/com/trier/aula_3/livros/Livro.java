@@ -61,7 +61,7 @@ public class Livro {
 				.toLowerCase();
 		String precoString = JOptionPane.showInputDialog(null, "Digite o preco:", "Cadatrar livro",
 				JOptionPane.QUESTION_MESSAGE);
-		while (precoString == null || precoString.isEmpty() || Double.parseDouble(precoString) <= 0 ) {
+		while (precoString == null || precoString.isEmpty() || Double.parseDouble(precoString) <= 0) {
 			precoString = JOptionPane.showInputDialog(null, "Preco invalido, tente novamente:", "Cadatrar livro",
 					JOptionPane.ERROR_MESSAGE);
 		}
@@ -104,9 +104,13 @@ public class Livro {
 		return false;
 	}
 
-	public boolean isSexo(EnumSexo sexoSelecionado) {
+	public boolean isSexo(EnumSexo sexoSelecionado, Livro livro) {
 		for (Autor autor : autorLivro) {
+			int count = 0;
 			if (autor.getSexo().equals(sexoSelecionado)) {
+				count++;
+			}
+			if (count == livro.autorLivro.size()) {
 				return true;
 			}
 		}
