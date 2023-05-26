@@ -59,6 +59,11 @@ public class Livro {
 		titulo = JOptionPane
 				.showInputDialog(null, "Digite o titulo do livro: ", "Cadatrar livro", JOptionPane.QUESTION_MESSAGE)
 				.toLowerCase();
+		while (titulo == null || titulo.isEmpty()) {
+			titulo = JOptionPane.showInputDialog(null, "Titulo invalido, tente novamente:", "Cadatrar livro",
+					JOptionPane.ERROR_MESSAGE);
+		}
+		
 		String precoString = JOptionPane.showInputDialog(null, "Digite o preco:", "Cadatrar livro",
 				JOptionPane.QUESTION_MESSAGE);
 		while (precoString == null || precoString.isEmpty() || Double.parseDouble(precoString) <= 0) {
