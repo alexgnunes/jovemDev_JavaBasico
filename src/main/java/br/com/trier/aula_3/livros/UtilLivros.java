@@ -21,16 +21,25 @@ public class UtilLivros {
 	public static String listarAutores(List<Autor> autores) {
 		String listaAutores = "";
 		for (int i = 0; i < autores.size(); i++) {
-			listaAutores += (i + 1) + " - " + autores.get(i).getNome() + "\n";
+			listaAutores += (i + 1) + " - " + autores.get(i).getNomeAutor() + "\n";
 		}
 
 		return listaAutores;
 	}	
-
+	
+	public static String listarAutoresDados(List<Autor> autores) {
+		String listaAutores = "";
+		for (Autor autor : autores) {
+			listaAutores += autor.getNomeAutor() + "\t idade: " +  autor.getIdade() + "\t sexo: " + autor.getSexo() + "\n";
+			
+		} 
+		return listaAutores;
+	}	
+	
 	public static void listarLivros(List<Livro> livros) {
 		for (Livro livro : livros) {
 			System.out.print("Titulo: " + livro.getTitulo() + "\npreco R$" + String.format("%.2f", livro.getPreco())
-					+ "\nautor(es):\n" + listarAutores(livro.autorLivro));
+					+ "\nautor(es):\n" + listarAutoresDados(livro.autorLivro));
 			System.out.println("------------------");
 		}
 	}

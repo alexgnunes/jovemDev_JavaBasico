@@ -21,30 +21,6 @@ public class Autor {
 		this.sexo = sexo;
 	}
 
-	public String getNome() {
-		return nomeAutor;
-	}
-
-	public void setNome(String nomeAutor) {
-		this.nomeAutor = nomeAutor;
-	}
-
-	public int getIdade() {
-		return idade;
-	}
-
-	public void setIdade(int idade) {
-		this.idade = idade;
-	}
-
-	public EnumSexo getSexo() {
-		return sexo;
-	}
-
-	public void setSexo(EnumSexo sexo) {
-		this.sexo = sexo;
-	}
-
 	public void cadastrarAutor() {
 		EnumSexo[] opcoesSexo = EnumSexo.values();
 		nomeAutor = JOptionPane

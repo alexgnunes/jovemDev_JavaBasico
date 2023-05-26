@@ -26,30 +26,6 @@ public class Livro {
 		this.autorLivro = autorLivro;
 	}
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
-	public void setPreco(Double preco) {
-		this.preco = preco;
-	}
-
-	public void setAutorLivro(List<Autor> autorLivro) {
-		this.autorLivro = autorLivro;
-	}
-
-	public String getTitulo() {
-		return titulo;
-	}
-
-	public Double getPreco() {
-		return preco;
-	}
-
-	public List<Autor> getautorLivro() {
-		return autorLivro;
-	}
-
 	@Override
 	public String toString() {
 		return "Livro [titulo=" + titulo + ", preco=" + preco + ", autorLivro=" + autorLivro + "]";
@@ -105,7 +81,7 @@ public class Livro {
 
 	public boolean isAutor(Autor autorEscolhido) {
 		for (Autor autor : autorLivro) {
-			if (autor.getNome().equalsIgnoreCase(autorEscolhido.getNome())) {
+			if (autor.getNomeAutor().equalsIgnoreCase(autorEscolhido.getNomeAutor())) {
 				return true;
 			}
 		}

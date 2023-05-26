@@ -17,18 +17,18 @@ public class MainLivros {
 		Livro livro1 = new Livro();
 		livro1.setTitulo("livro1");
 		livro1.setPreco(10.00);
-		livro1.getautorLivro().add(autores.get(0));
-		livro1.getautorLivro().add(autores.get(1));
+		livro1.getAutorLivro().add(autores.get(0));
+		livro1.getAutorLivro().add(autores.get(1));
 		livros.add(livro1);
 		Livro livro2 = new Livro();
 		livro2.setTitulo("livro2");
 		livro2.setPreco(20.00);
-		livro2.getautorLivro().add(autores.get(1));
+		livro2.getAutorLivro().add(autores.get(1));
 		livros.add(livro2);
 		Livro livro3 = new Livro();
 		livro3.setTitulo("livro3");
 		livro3.setPreco(20.00);
-		livro3.getautorLivro().add(autores.get(0));		
+		livro3.getAutorLivro().add(autores.get(0));		
 		livros.add(livro3);
 		
 		int opcao = 0;
