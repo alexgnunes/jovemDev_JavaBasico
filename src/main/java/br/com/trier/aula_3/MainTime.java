@@ -24,6 +24,8 @@ public class MainTime {
 				UtilTime.verificaTimeMaiorGols(times);				
 			}
 		} while (opcao != 5);
+		
+		
 	}
 
 }
