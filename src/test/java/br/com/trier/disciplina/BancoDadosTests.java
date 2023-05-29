@@ -21,6 +21,8 @@ public class BancoDadosTests {
 		bd.cadastraProfessor(prof2);
 		bd.cadastraProfessor(prof3);
 		
+		
+		
 		Aluno aluno1 = new Aluno("aluno 1", new ArrayList<Matricula>());
 	}
 	
