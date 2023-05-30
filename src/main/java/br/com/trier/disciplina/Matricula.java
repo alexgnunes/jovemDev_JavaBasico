@@ -24,4 +24,6 @@ public class Matricula {
 		this.disciplina = diciplina;
 		this.notas = notas;
 	}
+	
+	
 }

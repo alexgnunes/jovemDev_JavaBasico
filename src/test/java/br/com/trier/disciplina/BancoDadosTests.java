@@ -51,9 +51,9 @@ public class BancoDadosTests {
 		Double nota2 = 5.0;
 		Double nota3 = 3.3;
 		
-//		bd.cadastraNotaAlunoDisciplina(aluno1, matricula1, nota1, nota1, nota1);
-//		bd.cadastraNotaAlunoDisciplina(aluno1, matricula2, nota2, nota2, nota3);
-//		bd.cadastraNotaAlunoDisciplina(aluno1, matricula3, nota1, nota2, nota3);
+//		bd.cadastraNotaAlunoDisciplina(aluno3, matricula1, nota1, nota1, nota1);
+//		bd.cadastraNotaAlunoDisciplina(aluno3, matricula2, nota2, nota2, nota3);
+//		bd.cadastraNotaAlunoDisciplina(aluno3, matricula3, nota1, nota2, nota3);
 		
 
 	}
