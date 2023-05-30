@@ -9,13 +9,19 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Matricula {
-	private int id;
-	private Disciplina diciplina;
-	private int nota1;
-	private int nota2;
-	private int nota3;
+	private int idMatricula; 
+	private Disciplina disciplina;
 	
+	List<Double>notas = new ArrayList<>();
 	
-	
-	
+	public Matricula(Disciplina diciplina) {
+		super();
+		this.disciplina = diciplina;
+	}
+
+	public Matricula(Disciplina diciplina, List<Double> notas) {
+		super();
+		this.disciplina = diciplina;
+		this.notas = notas;
+	}
 }

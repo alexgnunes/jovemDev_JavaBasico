@@ -13,7 +13,7 @@ public class Professor {
 	public Professor(String nome, EnumFormacao formacao) {
 		super();
 		this.nome = nome;
-		this.formacao = formacao;
+		this.formacao = formacao; 
 	}
 	
 }

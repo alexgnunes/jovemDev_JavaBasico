@@ -9,14 +9,19 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Aluno {
-	private int id;
+	private int idAluno;
 	private String nome;	
 	
-	List<Matricula> matriculas = new ArrayList<>();
+	List<Matricula> matriculas = new ArrayList<>();	
 
 	public Aluno(String nome, List<Matricula> matriculas) {
 		this.nome = nome;
 		this.matriculas = matriculas;
+	}
+
+	public Aluno(String nome) {
+		super();
+		this.nome = nome;
 	}
 	
 	
