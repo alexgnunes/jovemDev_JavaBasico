@@ -1,67 +1,123 @@
 package br.com.trier.medicamentoTests;
 
-import br.com.trier.medicamento.Pessoa;
-import br.com.trier.medicamento.enuns.EnumAdministracao;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import br.com.trier.medicamento.Medicamento;
+import br.com.trier.medicamento.Pessoa;
 import br.com.trier.medicamento.repository.BancoDadosPrescricao;
 
 public class BancoDadosPrescricaoTests {
 
 	private BancoDadosPrescricao bd = new BancoDadosPrescricao();
-
+	
 	@BeforeEach
-	void init() {
-		Pessoa p1 = new Pessoa("pessoa 1", "gripe", new ArrayList());
-		Pessoa p2 = new Pessoa("pessoa 2", "febre", new ArrayList());
-		Pessoa p3 = new Pessoa("pessoa 3", "dengue", new ArrayList());
-
-		String alergia1 = "Alergia 1";
-		String alergia2 = "Alergia 2";
-		String alergia3 = "Alergia 3";
-
-		p1.getAlergiasPessoa().add(alergia1);
-		p1.getAlergiasPessoa().add(alergia2);
-		p1.getAlergiasPessoa().add(alergia3);
-
-		p2.getAlergiasPessoa().add(alergia3);
-		p2.getAlergiasPessoa().add(alergia2);
-
-		p3.getAlergiasPessoa().add(alergia1);
-
-		Medicamento m1 = new Medicamento("doril", EnumAdministracao.ORAL, new ArrayList<String>(),
-				new ArrayList<String>());
-		Medicamento m2 = new Medicamento("benegripe", EnumAdministracao.ORAL, new ArrayList<String>(),
-				new ArrayList<String>());
-
-		m1.getIndicacoes().add("febre");
-		m1.getIndicacoes().add("dengue");
-		m2.getIndicacoes().add("gripe");
-
-		m1.getAlergias().add(alergia1);
-		m2.getAlergias().add(alergia2);
-		m2.getAlergias().add(alergia3);
+	public void init() {
+	
+		bd.getMedicamentos().clear();
+		bd.getPessoas().clear();
+		
+		Pessoa p1 = new Pessoa("Pessoa 1", "Gripe");
+		p1.addCondicaoSaude("Dengue");
+		p1.addCondicaoSaude("Diabetes");
+		Pessoa p2 = new Pessoa("Pessoa 2", "Dor");
+		bd.cadastraPessoa(p1);
+		bd.cadastraPessoa(p2);
+		
+		Medicamento m1 = new Medicamento("Med 1");
+		m1.addIndicacao("Dor");
+		m1.addContraIndicacao("Pressão alta");
+		
+		Medicamento m2 = new Medicamento("Med 2");
+		m2.addIndicacao("Gripe");
+		m2.addIndicacao("Febre");
+		m2.addContraIndicacao("Dengue");
+		
+		Medicamento m3 = new Medicamento("Med 3");
+		m3.addIndicacao("Gripe");
+		
+		bd.cadastraMedicamento(m1);
+		bd.cadastraMedicamento(m2);
+		bd.cadastraMedicamento(m3);
+		
 	}
-
+	
 	@Test
-	@DisplayName("cadastra medicamento")
-	public void cadastroMedicamento() {
-		Medicamento m3 = new Medicamento("med 3", EnumAdministracao.INJETAVEL, new ArrayList<String>(),
-				new ArrayList<String>());
-		Medicamento m4 = new Medicamento("med 4", EnumAdministracao.INJETAVEL, new ArrayList<String>(),
-				new ArrayList<String>());
-		List<Medicamento> aux = bd.cadastraMedicamento(m3);
-		aux = bd.cadastraMedicamento(m4);
-
-		Assertions.assertEquals(2, aux.size());
+	public void preescreveOK(){
+		Pessoa p = bd.getPessoas().get(0);
+		Medicamento m = bd.getMedicamentos().get(2);
+		boolean prescrito = bd.prescreveMedicamento(p, m);
+		assertEquals(true, prescrito);
+		assertEquals(1, p.getMedicamentos().size());
+		assertEquals("Med 3", p.getMedicamentos().get(0).getNomeMedicamento());
 	}
-
+	
+	@Test
+	public void preescreveFalhaIndicacao(){
+		Pessoa p = bd.getPessoas().get(0);
+		Medicamento m = bd.getMedicamentos().get(0);
+		boolean prescrito = bd.prescreveMedicamento(p, m);
+		assertEquals(false, prescrito);
+		assertEquals(0, p.getMedicamentos().size());
+	}
+	
+	@Test
+	public void preescreveFalhaContraIndicacao(){
+		Pessoa p = bd.getPessoas().get(0);
+		Medicamento m = bd.getMedicamentos().get(1);
+		boolean prescrito = bd.prescreveMedicamento(p, m);
+		assertEquals(false, prescrito);
+		assertEquals(0, p.getMedicamentos().size());
+	}
+	
+	@Test
+	public void cadastraPessoaOK() {
+		Pessoa p = bd.getPessoas().get(0);
+		bd.cadastraPessoa(p);
+		assertEquals(3,bd.getPessoas().size());
+		assertEquals(true, bd.cadastraPessoa(p));
+		
+	}
+	
+	@Test
+	public void cadastraPessoaNull() {
+		Pessoa p = null;;
+		bd.cadastraPessoa(p);
+		assertEquals(2,bd.getPessoas().size());
+		assertEquals(false, bd.cadastraPessoa(p));		
+	}
+	
+	@Test
+	public void cadastraMedicamento() {
+		Medicamento m = bd.getMedicamentos().get(0);
+		bd.cadastraMedicamento(m);
+		assertEquals(4,bd.getMedicamentos().size());	
+	}
+	
+	@Test
+	public void existePessoaTrue() {
+		assertTrue(bd.existePessoa(bd.getPessoas().get(0))); 
+	}
+	
+	@Test
+	public void existeMedicamentoTrue() {
+		assertTrue(bd.existeMedicamento(bd.getMedicamentos().get(0))); 
+	}
+	
+	@Test
+	public void preescreveMedicamentoOk() {
+		Pessoa p = bd.getPessoas().get(0);
+		Medicamento m = bd.getMedicamentos().get(2);
+		bd.prescreveMedicamento(p, m);
+		assertTrue(p.addMedicamento(m));
+	}
+	
+//	@Test
+//	public void existePessoaFalse() {
+//		assertEquals(null,bd.existePessoa(bd.getPessoas().get(2)));
+//	}
 }

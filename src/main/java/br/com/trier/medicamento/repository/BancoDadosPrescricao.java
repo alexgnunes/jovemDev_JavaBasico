@@ -4,21 +4,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.trier.medicamento.Pessoa;
+import lombok.Getter;
 import br.com.trier.medicamento.Medicamento;
 
+@Getter
 public class BancoDadosPrescricao {
 
-	List<Pessoa> pessoas = new ArrayList<>();
-	List<Medicamento> medicamentos = new ArrayList<>();
+	List<Pessoa> pessoas = new ArrayList<Pessoa>();
+	List<Medicamento> medicamentos = new ArrayList<Medicamento>();
 	
-	public List<Medicamento> cadastraMedicamento(Medicamento medicamento) {
-		medicamento.setIdMedicamento(medicamentos.size() + 1);
+	public void cadastraMedicamento(Medicamento medicamento) {
 		medicamentos.add(medicamento);	
-		return medicamentos;
 	}
 	
-	public void cadastraPessoa(Pessoa pessoa) {
-		pessoa.setIdPessoa(pessoas.size() + 1);
-		pessoas.add(pessoa);		
+	public boolean cadastraPessoa(Pessoa pessoa) {
+		if (pessoa == null) {
+			return false;
+		}
+		pessoas.add(pessoa);
+		return true;
 	}
+	
+	public boolean existePessoa(Pessoa pessoa) {
+		return pessoas.contains(pessoa);
+	}
+	
+	public boolean existeMedicamento(Medicamento medicamento) {
+		return medicamentos.contains(medicamento);
+	}
+	
+	public boolean prescreveMedicamento(Pessoa p, Medicamento medicamento) {
+		if(existePessoa(p) && existeMedicamento(medicamento)) {
+			return p.addMedicamento(medicamento);
+		
+		}
+		return false;
+	}
+
 }

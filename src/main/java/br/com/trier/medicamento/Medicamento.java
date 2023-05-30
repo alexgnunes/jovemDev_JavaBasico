@@ -10,19 +10,33 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Medicamento {
-	private Integer idMedicamento;
+	
 	private String nomeMedicamento;
-	private EnumAdministracao administracao;
+	private EnumAdministracao administracao = null;
 
-	List<String> alergias = new ArrayList<>();
+	List<String> contraIndicacoes  = new ArrayList<>();
 	List<String> indicacoes = new ArrayList<>();
-
-	public Medicamento(String nomeMedicamento, EnumAdministracao administracao, List<String> alergias,
-			List<String> indicacoes) {
+	
+	public Medicamento(String nomeMedicamento) {
 		this.nomeMedicamento = nomeMedicamento;
-		this.administracao = administracao;
-		this.alergias = alergias;
-		this.indicacoes = indicacoes;
 	}
+	
+	public void addIndicacao(String indicacao) {
+		indicacoes.add(indicacao);
+	}
+	
+	public void addContraIndicacao(String contraIndicacao) {
+		contraIndicacoes.add(contraIndicacao);
+	}
+	
+	public boolean isIndicado(String sintoma) {
+		return indicacoes.contains(sintoma);
+	}
+	
+	public boolean isContraIndicado(List<String> condicaoSaude) {
+		return contraIndicacoes.stream().
+				anyMatch(condicaoSaude :: contains);
+	}
+	
 
 }
