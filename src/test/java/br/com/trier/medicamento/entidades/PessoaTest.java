@@ -1,4 +1,4 @@
-package br.com.trier.medicamento;
+package br.com.trier.medicamento.entidades;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -10,8 +10,8 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import br.com.trier.medicamento.Pessoa;
 import br.com.trier.medicamento.entidades.Medicamento;
+import br.com.trier.medicamento.entidades.Pessoa;
 
 class PessoaTest {
 

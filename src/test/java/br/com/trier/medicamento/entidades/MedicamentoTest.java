@@ -1,4 +1,4 @@
-package br.com.trier.medicamento;
+package br.com.trier.medicamento.entidades;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

@@ -3,8 +3,8 @@ package br.com.trier.medicamento.repository;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.trier.medicamento.Pessoa;
 import br.com.trier.medicamento.entidades.Medicamento;
+import br.com.trier.medicamento.entidades.Pessoa;
 import lombok.Getter;
 
 @Getter

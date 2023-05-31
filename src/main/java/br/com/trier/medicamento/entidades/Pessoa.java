@@ -1,9 +1,8 @@
-package br.com.trier.medicamento;
+package br.com.trier.medicamento.entidades;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.trier.medicamento.entidades.Medicamento;
 import lombok.Getter;
 
 @Getter
