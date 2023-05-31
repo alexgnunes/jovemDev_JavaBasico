@@ -85,5 +85,15 @@ public class BancoDados {
 		return (soma / notas.size());
 	}
 	
-	
+	public  List<Professor> listaProfPos(){
+		List<Professor> profPos = new ArrayList<>();
+		for (Professor x : professores) {
+			if (x.getFormacao().equals(EnumFormacao.POSGRADUACAO)) {
+				profPos.add(x);
+			}
+		}
+		
+		return profPos;
+		
+	}
 }

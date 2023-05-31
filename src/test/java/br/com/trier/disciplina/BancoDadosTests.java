@@ -13,7 +13,7 @@ public class BancoDadosTests {
 	@BeforeEach
 	void init() {
 		Professor prof1 = new Professor("prof 1",EnumFormacao.ESPECIALIZACAO);
-		Professor prof2 = new Professor("prof 2",EnumFormacao.GRADUACAO);
+		Professor prof2 = new Professor("prof 2",EnumFormacao.POSGRADUACAO);
 		Professor prof3 = new Professor("prof 3",EnumFormacao.POSGRADUACAO);
 
 		bd.cadastraProfessor(prof1);
@@ -109,4 +109,9 @@ public class BancoDadosTests {
 		assertEquals(9.50, bd.listarDisciplinasComMedia(1).get(0).getMedia());
 	}
 	
+	@Test
+	@DisplayName("lista professores com pos")
+	public void listaProfPos() {		
+		assertEquals(2,bd.listaProfPos().size() );
+	}
 }

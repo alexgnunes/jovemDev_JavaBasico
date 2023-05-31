@@ -21,22 +21,11 @@ public class Matricula {
 		this.disciplina = diciplina;
 	}
 	
-	
-
-	public Matricula(Disciplina diciplina, List<Double> notas) {
-		super();
-		this.disciplina = diciplina;
-		this.notas = notas;
-	}	
-	
 	public void addNota(double nota) {
 		notas.add(nota);
 	}
 
-	@Override
-	public String toString() {
-		return  disciplina.getNomeDisciplina() + media;
-	}
+	
 
 	
 }

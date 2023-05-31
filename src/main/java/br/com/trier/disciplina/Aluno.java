@@ -7,18 +7,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@Setter
+
 public class Aluno {
-	private int idAluno;
+	@Setter private int idAluno;
 	private String nome;	
 	private Double media;
 	
-	List<Matricula> matriculas = new ArrayList<>();	
-
-	public Aluno(String nome, List<Matricula> matriculas) {
-		this.nome = nome;
-		this.matriculas = matriculas;
-	}
+	List<Matricula> matriculas = new ArrayList<>();		
 
 	public Aluno(String nome) {
 		super();

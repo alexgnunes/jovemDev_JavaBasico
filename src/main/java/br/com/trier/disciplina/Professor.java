@@ -4,9 +4,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@Setter
+
 public class Professor {
-	private int id;
+	
+	@Setter private int id;
 	private String nome;
 	private EnumFormacao formacao;
 	
