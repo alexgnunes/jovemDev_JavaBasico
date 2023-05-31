@@ -8,6 +8,8 @@ public class BancoDados {
 	private List<Aluno> alunos = new ArrayList<Aluno>();
 	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	private List<Matricula> matriculas = new ArrayList<Matricula>();
+	private List<Matricula> matriculasAlunoEscolhido = new ArrayList<Matricula>();
+
 
 	public Professor cadastraProfessor(Professor prof) {
 		prof.setId(professores.size() + 1); 
@@ -62,16 +64,17 @@ public class BancoDados {
 		return matriculaEscolhida;
 	}
 	
-	public String listarDisciplinasComMedia(Integer idAluno) {
-		StringBuilder sb = new StringBuilder();
-		List<Matricula> matriculasAlunoEscolhido = buscaAlunoId(idAluno).getMatriculas();
+	public List<Matricula> listarDisciplinasComMedia(Integer idAluno) {
+		int x = 0;
+		matriculasAlunoEscolhido.clear();
+		matriculasAlunoEscolhido = buscaAlunoId(idAluno).getMatriculas();
 		for (Matricula matricula : matriculasAlunoEscolhido) {
-            sb.append( matricula.getDisciplina());
             List<Double> notas = matricula.getNotas();
-            double media = calcularMedia(notas);
-            sb.append(media);
+            double media = calcularMedia(notas);            
+			matriculasAlunoEscolhido.get(x).setMedia(media);
+            x++;
 	}
-		return null;
+		return matriculasAlunoEscolhido;
 	}
 
 	private double calcularMedia(List<Double> notas) {
@@ -79,6 +82,8 @@ public class BancoDados {
 		for (Double nota : notas) {
 			soma += nota;
 		}
-		return soma / notas.size();
+		return (soma / notas.size());
 	}
+	
+	
 }

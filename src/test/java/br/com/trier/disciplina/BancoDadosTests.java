@@ -1,5 +1,7 @@
 package br.com.trier.disciplina;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -47,13 +49,17 @@ public class BancoDadosTests {
 		bd.matricularAluno(aluno1, matricula2);
 		bd.matricularAluno(aluno1, matricula3);
 		
-		Double nota1 = 9.5;
-		Double nota2 = 5.0;
-		Double nota3 = 3.3;
+		matricula1.addNota(9.5);
+		matricula1.addNota(9.5);
+		matricula1.addNota(9.5);
+
+		matricula2.addNota(9.5);
+		matricula2.addNota(3.5);
+		matricula2.addNota(5.5);
 		
-//		bd.cadastraNotaAlunoDisciplina(aluno3, matricula1, nota1, nota1, nota1);
-//		bd.cadastraNotaAlunoDisciplina(aluno3, matricula2, nota2, nota2, nota3);
-//		bd.cadastraNotaAlunoDisciplina(aluno3, matricula3, nota1, nota2, nota3);
+		matricula3.addNota(9.5);
+		matricula3.addNota(2.5);
+		matricula3.addNota(9.5);
 		
 
 	}
@@ -94,15 +100,13 @@ public class BancoDadosTests {
 	@Test
 	@DisplayName("informa as notas em uma disciplina escolhida")
 	public void informaNotaAlunoDisciplina() {
-		bd.cadastraNotaAlunoDisciplina(bd.buscaAlunoId(1), bd.buscaMatriculaId(1), 9.0, 8.0, 7.0);		
-		Assertions.assertEquals(9.0, bd.buscaAlunoId(1).matriculas.get(1).notas.get(0));
+		Assertions.assertEquals(9.5, bd.buscaAlunoId(1).matriculas.get(1).notas.get(0));
 	}
 	
 	@Test
 	@DisplayName(" mostra as disciplina e media do aluno")
 	public void retornaLiistaDisciplinaComMedia() {
-		bd.listarDisciplinasComMedia(1);
-		//System.out.println(bd.listarDisciplinasComMedia(1));
+		assertEquals(9.50, bd.listarDisciplinasComMedia(1).get(0).getMedia());
 	}
 	
 }
