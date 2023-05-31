@@ -5,14 +5,12 @@ import java.util.List;
 
 import br.com.trier.medicamento.enuns.EnumAdministracao;
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
-@Setter
 public class Medicamento {
 	
 	private String nomeMedicamento;
-	private EnumAdministracao administracao = null;
+	private EnumAdministracao administracao = null; 
 
 	List<String> contraIndicacoes  = new ArrayList<>();
 	List<String> indicacoes = new ArrayList<>();

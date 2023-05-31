@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
-@Setter
 public class Pessoa {
 	
 	private String nome;
@@ -16,7 +14,11 @@ public class Pessoa {
 	List<String> condicaoSaude  = new ArrayList<>();
 	List<Medicamento> medicamentos   = new ArrayList<>();
 	
-	
+	public Pessoa(String nome, String sintoma) {
+		super();
+		this.nome = nome;
+		this.sintoma = sintoma;
+	}
 	
 	public void addCondicaoSaude(String condicaoSaude) {
 		this.condicaoSaude.add(condicaoSaude);
@@ -28,12 +30,6 @@ public class Pessoa {
 			return true;
 		}
 		return false;
-	}
-
-	public Pessoa(String nome, String sintoma) {
-		super();
-		this.nome = nome;
-		this.sintoma = sintoma;
 	}
 	
 }

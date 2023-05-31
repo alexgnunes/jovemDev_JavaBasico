@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@Setter
 public class Disciplina {
 	private int id;
 	private String nomeDisciplina;

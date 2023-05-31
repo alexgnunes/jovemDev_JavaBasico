@@ -17,10 +17,11 @@ class MedicamentoTest {
 	public void init() {
 		List<String> condicaoSaude = new ArrayList();
 		condicaoSaude.add("Diabetes");
-		
+		 
 		medicamento = new Medicamento("Med 1");
 		medicamento.addIndicacao("Dor");
 		medicamento.addContraIndicacao("Pressão alta");
+		medicamento.addContraIndicacao("Diabetes");
 	}
 
 	@Test
@@ -32,7 +33,7 @@ class MedicamentoTest {
 	@Test
 	void adicionaContraIndicacao() {
 		medicamento.addContraIndicacao("diabetes");
-		assertEquals(2, medicamento.getContraIndicacoes().size());
+		assertEquals(3, medicamento.getContraIndicacoes().size());
 	}
 	
 	@Test
@@ -45,7 +46,12 @@ class MedicamentoTest {
 	}
 	
 	@Test
-	void verificaMedicamentoContraIndicadoOK() {
+	void verificaMedicamentoContraIndicadoTrue() {
 		assertTrue(medicamento.contraIndicacoes.contains("Diabetes"));
+	}
+	
+	@Test
+	void verificaMedicamentoContraIndicadoFalse() {
+		assertFalse(medicamento.contraIndicacoes.contains("gravidez"));
 	}
 }

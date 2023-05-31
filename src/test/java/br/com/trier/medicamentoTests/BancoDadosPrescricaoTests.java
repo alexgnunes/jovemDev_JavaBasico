@@ -16,7 +16,7 @@ public class BancoDadosPrescricaoTests {
 	private BancoDadosPrescricao bd = new BancoDadosPrescricao();
 	
 	@BeforeEach
-	public void init() {
+	public void init() { 
 	
 		bd.getMedicamentos().clear();
 		bd.getPessoas().clear();

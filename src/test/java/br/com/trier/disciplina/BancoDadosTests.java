@@ -102,7 +102,7 @@ public class BancoDadosTests {
 	@DisplayName(" mostra as disciplina e media do aluno")
 	public void retornaLiistaDisciplinaComMedia() {
 		bd.listarDisciplinasComMedia(1);
-		System.out.println(bd.listarDisciplinasComMedia(1));
+		//System.out.println(bd.listarDisciplinasComMedia(1));
 	}
 	
 }
