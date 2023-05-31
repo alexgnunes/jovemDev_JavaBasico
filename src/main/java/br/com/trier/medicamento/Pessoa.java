@@ -3,6 +3,7 @@ package br.com.trier.medicamento;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.trier.medicamento.entidades.Medicamento;
 import lombok.Getter;
 
 @Getter

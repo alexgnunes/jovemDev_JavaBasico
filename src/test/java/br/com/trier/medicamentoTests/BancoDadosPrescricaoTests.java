@@ -7,8 +7,8 @@ import static org.junit.Assert.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import br.com.trier.medicamento.Medicamento;
 import br.com.trier.medicamento.Pessoa;
+import br.com.trier.medicamento.entidades.Medicamento;
 import br.com.trier.medicamento.repository.BancoDadosPrescricao;
 
 public class BancoDadosPrescricaoTests {

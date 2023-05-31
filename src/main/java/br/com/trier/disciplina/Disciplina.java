@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
+@Setter
 public class Disciplina {
 	private int id;
 	private String nomeDisciplina;
@@ -14,7 +15,7 @@ public class Disciplina {
 		this.nomeDisciplina = nomeDisciplina;
 		this.cargaHoraria = cargaHoraria;
 		this.professor = professor;
-	}
+	} 
 
 	
 }

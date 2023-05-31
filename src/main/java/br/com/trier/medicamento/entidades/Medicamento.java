@@ -1,4 +1,4 @@
-package br.com.trier.medicamento;
+package br.com.trier.medicamento.entidades;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class Medicamento {
 	private String nomeMedicamento;
 	private EnumAdministracao administracao = null; 
 
-	List<String> contraIndicacoes  = new ArrayList<>();
+	public List<String> contraIndicacoes  = new ArrayList<>();
 	List<String> indicacoes = new ArrayList<>();
 	
 	public Medicamento(String nomeMedicamento) {

@@ -12,7 +12,7 @@ public class BancoDados {
 	public Professor cadastraProfessor(Professor prof) {
 		prof.setId(professores.size() + 1); 
 		professores.add(prof);
-		return prof;
+		return prof; 
 	}
 
 	public Professor buscaProfId(final Integer id) {

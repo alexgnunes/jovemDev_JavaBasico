@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.trier.medicamento.Pessoa;
+import br.com.trier.medicamento.entidades.Medicamento;
 import lombok.Getter;
-import br.com.trier.medicamento.Medicamento;
 
 @Getter
 public class BancoDadosPrescricao {
