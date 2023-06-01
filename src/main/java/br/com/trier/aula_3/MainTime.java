@@ -8,7 +8,7 @@ public class MainTime {
 	public static void main(String[] args) {
 		List<Time> times = new ArrayList<Time>();		
 
-		int opcao = 0;
+		int opcao = 0; 
 		do {
 			opcao = UtilTime.escolherOpcao();
 			if (opcao == 1) {

@@ -18,7 +18,7 @@ public class BancoDadosTests {
 
 		bd.cadastraProfessor(prof1);
 		bd.cadastraProfessor(prof2);
-		bd.cadastraProfessor(prof3);
+		bd.cadastraProfessor(prof3); 
 		
 		Aluno aluno1 = new Aluno("aluno 1");
 		Aluno aluno2 = new Aluno("aluno 2");

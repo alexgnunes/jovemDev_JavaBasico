@@ -20,7 +20,7 @@ public class Time {
 	
 	public Time(String nomeTime) {
 		super();
-		this.nomeTime = nomeTime;
+		this.nomeTime = nomeTime; 
 	}
 
 	public Time(String nomeTime, List<Jogador> jogadores) {

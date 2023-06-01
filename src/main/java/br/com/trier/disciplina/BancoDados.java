@@ -11,7 +11,7 @@ public class BancoDados {
 	private List<Matricula> matriculasAlunoEscolhido = new ArrayList<Matricula>();
 
 
-	public Professor cadastraProfessor(Professor prof) {
+	public Professor cadastraProfessor(Professor prof) { 
 		prof.setId(professores.size() + 1); 
 		professores.add(prof);
 		return prof; 

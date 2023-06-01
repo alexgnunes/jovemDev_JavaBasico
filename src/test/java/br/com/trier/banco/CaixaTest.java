@@ -12,7 +12,7 @@ class CaixaTest {
 	private Caixa caixa = new Caixa();
 	List<ContaCorrente> contas = new ArrayList<>();
 	
-	@BeforeEach
+	@BeforeEach 
 	void init() {
 		ContaCorrente corrente = new ContaCorrente(10, 123, "nome 1", 100);
 		ContaCorrente especial = new ContaEspecial(20, 456, "nome 2", 100, 100);
