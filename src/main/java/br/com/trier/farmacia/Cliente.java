@@ -29,4 +29,7 @@ public class Cliente {
 		saldoDevedor += valorPago;
 	}
 
+	public void pagarDividaTotal() {
+		saldoDevedor = 0;
+	}
 }
