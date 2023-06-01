@@ -14,4 +14,12 @@ public class ContaUniversitaria extends ContaCorrente {
 		}
 		return false;
 	}
+	
+	@Override
+	public boolean isDeposito (double valor) {
+		if (saldo + valor <= 2000) {
+			return true;				
+		}
+		return false;				
+	}
 }

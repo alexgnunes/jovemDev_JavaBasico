@@ -29,4 +29,15 @@ public class ContaCorrente {
 		saldo += valor;
 		return true;				
 	}	
+	
+	public boolean isSaque (double valor) {
+		if (saldo - valor >= 0) {
+			return true;				
+		}
+		return false;				
+	}
+	
+	public boolean isDeposito (double valor) {
+			return true;		
+	}
 }

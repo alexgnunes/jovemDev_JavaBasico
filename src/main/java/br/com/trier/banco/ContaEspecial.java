@@ -11,11 +11,18 @@ public class ContaEspecial extends ContaCorrente{
 	
 	@Override
 	public boolean saque(double valor) {
-		double limTotal = saldo + limite;
-		if (limTotal - valor >= 0) {
+		if (saldo + limite - valor >= 0) {
 			saldo -= valor;
 			return true;				
 		}
 		return false;	
+	}
+	
+	@Override
+	public boolean isSaque (double valor) {
+		if (saldo + limite - valor >= 0) {
+			return true;				
+		}
+		return false;				
 	}
 }

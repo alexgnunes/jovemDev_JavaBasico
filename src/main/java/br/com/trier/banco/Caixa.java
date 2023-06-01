@@ -10,4 +10,13 @@ public class Caixa {
 		conta.deposito(valor);
 	}
 	
+	public boolean transferencia(ContaCorrente contaOrigem, ContaCorrente contaDest, double valor) {
+		if(contaOrigem.isSaque(valor) && contaDest.isDeposito(valor)) {
+			contaOrigem.saque(valor);
+			contaDest.deposito(valor);
+			return true;
+		}
+		return false;
+	}
+	
 }
