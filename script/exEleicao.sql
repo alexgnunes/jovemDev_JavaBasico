@@ -261,6 +261,25 @@ select c.nome,  c.qt_eleitores -
 from cidade c
 order by abstencoes desc;		
 
+
+--24. Selecionar o percentual de faltantes em cada cidade, ordenado pelo maior percentual.
+ select c.nome, round((( c.qt_eleitores - 
+  (
+    (select sum(v.voto)
+    from voto v
+    inner join candidato cand on cand.id = v.candidato 
+    inner join cidade ci on ci.id = cand.cidade
+    inner join cargo on cargo.id = cand.cargo and cargo.nome = 'Prefeito'
+    where ci.id = c.id)
+    +
+    (select sum(vi.brancos + vi.nulos)
+    from voto_invalido vi
+    inner join cargo on cargo.id = vi.cargo and cargo.nome = 'Prefeito'
+    where vi.cidade = c.id)
+  )) * 100 / c.qt_eleitores),2) as percentual_faltantes
+from cidade c
+order by percentual_faltantes desc;	
+
 --25. Selecionar o candidato a prefeito eleito de cada cidade, ordenado pelo nome da cidade.
 select c.nome, cand.nome, v.max_votos
 from cidade c
